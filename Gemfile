@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in jsbundling-rails.gemspec.
 gemspec
 
+# test
+
 gem "appraisal"
 gem "rails", "~> 8.0.0"
 gem "sqlite3"
