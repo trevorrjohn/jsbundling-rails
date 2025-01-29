@@ -8,8 +8,6 @@ gem "sprockets-rails"
 gem "sqlite3"
 gem "propshaft"
 
-# test
-
 group :test do
   gem "turbo-rails"
   gem "stimulus-rails"
