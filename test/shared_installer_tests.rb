@@ -75,7 +75,7 @@ module SharedInstallerTests
 
     if Rails::VERSION::MAJOR < 8
       test "basic installation with Sprockets" do
-        with_new_rails_app(*("--asset-pipeline=sprockets" if Rails::VERSION::MAJOR == 7)) do
+        with_new_rails_app("--asset-pipeline=sprockets") do
           File.write("app/assets/config/manifest.js", "// pre-existing\n", mode: "a+")
 
           run_installer
@@ -88,13 +88,11 @@ module SharedInstallerTests
       end
     end
 
-    if Rails::VERSION::MAJOR >= 7
-      test "basic installation with Propshaft" do
-        with_new_rails_app("--asset-pipeline=propshaft") do
-          run_installer
+    test "basic installation with Propshaft" do
+      with_new_rails_app("--asset-pipeline=propshaft") do
+        run_installer
 
-          assert_not File.exist?("app/assets/config/manifest.js")
-        end
+        assert_not File.exist?("app/assets/config/manifest.js")
       end
     end
   end

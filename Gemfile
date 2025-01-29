@@ -1,12 +1,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Specify your gem's dependencies in importmap-rails.gemspec.
+# Specify your gem's dependencies in jsbundling-rails.gemspec.
 gemspec
 
 gem "appraisal"
-gem "rails", "~> 7.2.0"
-gem "sprockets-rails"
+gem "rails", "~> 8.0.0"
 gem "sqlite3"
 
 group :test do
