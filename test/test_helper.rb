@@ -2,6 +2,8 @@
 ENV["RAILS_ENV"] = "test"
 
 require "fileutils"
+require "tmpdir"
+
 require "rails"
 require "rails/test_help"
 
@@ -44,7 +46,7 @@ module RailsAppHelpers
           FileUtils.cp_r("#{cache_dir}/#{app_name}", tmpdir)
         else
           create_new_rails_app("#{tmpdir}/#{app_name}", *cli_options)
-          FileUtils.cp_r("#{tmpdir}/#{app_name}", cache_dir) # Cache app for future runs.
+          FileUtils.cp_r("#{tmpdir}/#{app_name}", cache_dir, remove_destination: true) # Cache app for future runs.
         end
 
         Dir.chdir("#{tmpdir}/#{app_name}", &block)
